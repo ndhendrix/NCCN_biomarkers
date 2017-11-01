@@ -4,7 +4,7 @@
 if (!require(RSelenium)) install.packages('RSelenium')
 if (!require(XML)) install.packages('XML')
 
-setwd("C:/Users/ndhen/Dropbox (UW)/Primer/PRIMER_DIFFUSION MODEL/NCCN biomarker compendium scrape")
+setwd("") # set your working directory here
 
 # setup Selenium server
 rem_dr <- rsDriver(verbose = FALSE)
