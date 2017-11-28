@@ -4,6 +4,9 @@
 if (!require(RSelenium)) install.packages('RSelenium')
 if (!require(XML)) install.packages('XML')
 
+require(RSelenium)
+require(XML)
+
 setwd("") # set your working directory here
 
 # setup Selenium server
