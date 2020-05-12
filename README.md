@@ -4,7 +4,7 @@ The [NCCN Biomarker Compendium](https://www.nccn.org/professionals/biomarkers/co
 
 ## Prerequisites
 
-This script assumes that you have an NCCN account and that the Chrome browser is installed on your computer. If you use a browser other than Chrome, [see here](https://cran.r-project.org/web/packages/RSelenium/vignettes/RSelenium-basics.html#rsdriver) for a note on how to use alternative browsers with RSelenium.
+This script assumes that you have an NCCN account and that the Firefox browser is installed on your computer. If you use a browser other than Firefox [see here](https://cran.r-project.org/web/packages/RSelenium/vignettes/RSelenium-basics.html#rsdriver) for a note on how to use alternative browsers with RSelenium.
 
 ## Built With
 

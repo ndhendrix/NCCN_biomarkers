@@ -10,7 +10,7 @@ require(XML)
 setwd("") # set your working directory here
 
 # setup Selenium server
-rem_dr <- rsDriver(verbose = FALSE)
+rem_dr <- rsDriver(verbose = FALSE, browser = "firefox")
 rd <- rem_dr$client
 
 # put your username and password here
