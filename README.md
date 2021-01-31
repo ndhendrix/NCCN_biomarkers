@@ -11,6 +11,10 @@ This script assumes that you have an NCCN account and that the Firefox browser i
 * [Selenium](http://www.seleniumhq.org/) - Browser driver
 * [RSelenium](https://cran.r-project.org/web/packages/RSelenium/vignettes/RSelenium-basics.html) - Selenium interface for R
 
+## Note on results
+
+Starting January 2021, the NCCN website began including links to "Read more" / "Read less" for some fields. This algorithm accommodates these changes, but includes "Read less" at the end of some fields.
+
 ## Authors
 
 * **Nathaniel Hendrix** - [My Website](https://nathanielhendrix.com)
