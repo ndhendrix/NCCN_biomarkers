@@ -8,8 +8,7 @@ require(RSelenium)
 require(XML)
 require(stringr)
 
-setwd("D:/ndhen/Dropbox/Primer/PRIMER_DIFFUSION MODEL/NCCN biomarker compendium scrape") #desktop
-#setwd("~/Dropbox (UW)/Primer/PRIMER_DIFFUSION MODEL/NCCN biomarker compendium scrape") #laptop
+setwd("************YOUR WORKING DIRECTORY HERE***********") #desktop
 
 # setup Selenium server
 rem_dr <- rsDriver(verbose = FALSE, browser = "firefox")
@@ -17,9 +16,9 @@ rd <- rem_dr$client
 
 # fill out log in page and submit
 rd$navigate("https://www.nccn.org/professionals/biomarkers/content/")
-rd$findElement("name", "ctl00$ctl00$MainContent$Center$txtEmail")$sendKeysToElement(list("nhendrix@uw.edu"))
-rd$findElement("name", "ctl00$ctl00$MainContent$Center$txtPassword")$sendKeysToElement(list("Ky!@l5ysv2E0s$M"))
-rd$findElement("name", "ctl00$ctl00$MainContent$Center$btnLogin")$clickElement()
+rd$findElement("name", "Username")$sendKeysToElement(list("************YOUR EMAIL HERE***********"))
+rd$findElement("name", "Password")$sendKeysToElement(list("************YOUR PASSWORD HERE***********"))
+rd$findElement("css", ".log-in-form .btn.btn-primary")$clickElement()
 Sys.sleep(10) #give site a minute while we log in
 
 # # show all records and columns
@@ -39,6 +38,7 @@ dd <- rd$findElement("id", "ddlGuideline")
 disease_html <- dd$getElementAttribute("outerHTML")[[1]]
 diseases <- htmlParse(disease_html)
 diseases <- unlist(diseases["//option", fun = function(x) xmlGetAttr(x, "value")])
+nav_back <- diseases[1]
 diseases <- diseases[2:length(diseases)]
 
 # go through list of genes to get 
@@ -96,6 +96,13 @@ for(d in diseases) {
     current_page = current_page + 1 # iterate current page number
     Sys.sleep(1) # pause so we don't get blocked by server
   }
+  
+  # retrieve full list of guidelines
+  option <- rd$findElement(using = "xpath", 
+                           paste0("//select[@id='ddlGuideline']/option[@value='", nav_back, "']"))
+  option$clickElement()
+  Sys.sleep(5) # give it a second to retrieve results
+  
 }
 
 # save data frame as CSV
